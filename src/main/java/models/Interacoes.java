@@ -11,7 +11,7 @@ public class Interacoes {
 	private int solicitacao_id;
 	private int usuario_id;
 	
-	private Interacoes() {
+	public Interacoes() {
 		
 	}
 	

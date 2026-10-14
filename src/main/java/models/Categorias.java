@@ -2,10 +2,10 @@ package models;
 
 public class Categorias {
 	
-	private int id;
+	private Integer id;
 	private String nome;
 	private String descricao;
-	private Boolean ativo;
+	private boolean ativo;
 	
 	public Categorias() {
 		

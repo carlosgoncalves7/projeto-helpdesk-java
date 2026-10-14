@@ -18,8 +18,8 @@ public class Solicitacoes {
 	private int tecnico_id;
 	private int categoria_id;
 	
-	private Solicitacoes() {
-		
+	public Solicitacoes() {
+			
 	}
 	
 	public Solicitacoes(
