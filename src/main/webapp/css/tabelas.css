@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+:root {
+  --fundo: #f7f8fa;
+  --superficie: #ffffff;
+  --fundo-cabecalho: #fafbfc;
+  --borda: #e4e7ec;
+  --texto: #252b37;
+  --texto-secundario: #667085;
+  --azul: #247dfe;
+  --azul-link: #1550e0;
+}
+
+.lista {
+	overflow: hidden;
+	background: var(--superficie);
+	border: 1px solid var(--borda);
+	border-radius: 8px;
+} 
+
+.lista .cabecalho {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	height: 64px;
+	padding-inline: 24px;
+}
+
+.lista .cabecalho .titulo {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 19px;
+}
+
+.tabela-container {
+  overflow-x: hidden;
+}
+
+.tabela {
+	width: 100%;
+	min-width: 1100px;
+	
+	border-collapse: collapse;
+	table-layout: fixed;
+	text-align: left;
+	
+}
+
+/*.tabela th:nth-child(1) { width: 20.67%; }
+.tabela th:nth-child(2) { width: 49.67%; }
+.tabela th:nth-child(3) { width: 8.66%; }
+.tabela th:nth-child(4) { width: 21%; } */
+
+.tabela tbody{
+	display:block;
+	width: 100%;
+	max-height: 540px;
+}
+.tabela tbody tr {
+	display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.tabela thead th,
+.tabela tbody td {
+  padding: 0;
+  vertical-align: middle;
+  border-bottom: 1px solid #e4e7ec;
+}
+
+.tabela th:first-child,
+.tabela td:first-child {
+  padding-left: 24px;
+}
+
+.tabela th:last-child,
+.tabela td:last-child {
+  padding-right: 24px;
+}
+
+.tabela thead {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	background-color: #fafbfc;
+}
+
+.tabela th {
+  height: 44px;
+  border-top: 1px solid var(--borda);
+  color: var(--texto-secundario);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.tabela td {
+  height: 64px;
+  padding-block: 18px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.tabela td:first-child {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tabela td:nth-child(2) {
+  padding-right: 16px;
+  color: var(--texto-secundario);
+  overflow-wrap: anywhere;
+}
+
+.tabela .acoes {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.acoes button,
+.acoes a {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--azul-link);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.acoes button:hover,
+.acoes a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,247 @@
+:root {
+  --fundo: #f7f8fa;
+  --superficie: #ffffff;
+  --fundo-cabecalho: #fafbfc;
+  --borda: #e4e7ec;
+  --texto: #252b37;
+  --texto-secundario: #667085;
+  --azul: #247dfe;
+  --azul-link: #1550e0;
+}
+
+* {
+	margin: 0;
+  	padding: 0;
+  	box-sizing: border-box;
+	font-family: "Inter", sans-serif;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-family: Arial, sans-serif;
+	background-color: #F7F8FA;
+	overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+a {
+	text-decoration: none; /* Remove o sublinhado padrão do link */
+}
+
+.header-home {
+	background-color: #ffffff;
+	border: 1px solid #E4E7EC;
+	height: 88px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 160px;
+ 
+}
+
+.header-home .portal {
+	display: flex;
+	gap: 12px;
+	width: fit-content;
+	height: 36px;
+	align-items: center; /* Alinha verticalmente os itens no centro */
+}
+
+.header-home .portal p {
+	color: #202733;
+  	font-size: 18px;
+  	font-weight: 600;
+  	text-align: left;
+}
+
+.header-home .portal .simbolo {
+	width: 36px;
+	height: 36px;
+	background-color: #EEF6FF;
+}
+
+.header-home .btn-sair a {
+	display: flex;
+	gap: 8px;
+	padding: 10px 12px;
+	color: #697180;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: left;
+}
+
+.main-home {
+	width: 100%;
+	max-width: 1440px;
+	padding: 80px 160px;
+	
+	display: flex;
+	flex-direction: column;
+	
+	gap: 56px;
+	
+}
+
+.main-home .welcome {
+	max-width: 1120px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	gap: 32px;
+}
+
+.main-home .welcome .perfil h1 {
+	font-size: 36px;
+	font-weight: 600; 
+	line-height: 120%;
+	text-align: left;
+	
+	color: #202733;
+}
+
+.main-home .welcome .perfil p {
+	font-size: 14px; 
+	font-weight: 400;
+	text-align: left;
+	color: #697180;
+}
+
+.main-home .welcome .perfil p span {
+	color: #1550E0;
+	font-weight: 600;
+}
+
+.main-home .welcome .solicitacao {
+	display: flex;
+	width: fit-content;
+	height: 48px;
+	align-items: center;
+}
+
+.main-home .welcome .solicitacao a {
+	background-color: #247DFE;
+	border-radius: 6px;
+	padding: 0 20px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: left;
+	color: #ffffff;
+}
+
+.main-home .acessos {
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main-home .acessos p {
+	font-size: 16px;
+	font-weight: 600;
+	color: #202733;
+}
+
+.main-home .acessos nav {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.main-home .acessos nav a {
+	width: 100%;
+	max-width: 360px;
+	padding: 24px; /* Aplicado 24px em cima/baixo e nas laterais */
+	background-color: #ffffff;
+	border: 1px solid #e4e7e6;
+	border-radius: 16px;
+	display: flex;
+	transition: box-shadow 0.3s ease, transform 0.3s ease; 
+}
+
+.main-home .acessos nav a:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px); 
+}
+
+.main-home .acessos nav a .informacoes-acesso {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.main-home .acessos nav a .informacoes-acesso h2 {
+  font-size: 20px;
+  line-height: 130%;
+  text-align: left;
+  margin: 0; /* Remove margens padrão */
+  color: #111827; /* Adicionado uma cor padrão escura para o título (opcional) */
+}
+
+.main-home .acessos nav a .informacoes-acesso p {
+  font-size: 16px;
+  line-height: 150%;
+  text-align: left;
+  font-weight: 400; /* Equivalente a regular */
+  margin: 0; /* Remove margens padrão */
+  color: #697180; /* Mantendo a paleta cinza consistente */
+}
+
+/* Botão Link com o estilo dos links da lista (ex: "Editar", "Excluir") */
+.btn-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #2b78e4; /* O mesmo azul característico do sistema */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.btn-link:hover {
+    color: #1a65c9; /* Tom de azul ligeiramente mais escuro */
+    text-decoration: underline; /* Sublinha levemente para indicar que é clicável */
+}
+
+/* Caso você queira que ele tenha o formato de botão (fundo azul) igual ao "Nova categoria" */
+.btn-link-secundario {
+    display: inline-block;
+    background-color: transparent;
+    color: #2b78e4;
+    border: 1.5px solid #2b78e4; /* Borda azul em vez de fundo preenchido */
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-link-secundario:hover {
+    background-color: #2b78e4; /* Inverte as cores no hover */
+    color: #ffffff;
+}
+
+
+
+
