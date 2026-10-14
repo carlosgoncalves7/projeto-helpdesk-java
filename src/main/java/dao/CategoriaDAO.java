@@ -22,16 +22,21 @@ public class CategoriaDAO {
 			
 			comando.setString(1, categoria.getNome());
 			comando.setString(2, categoria.getDescricao());
-			comando.executeUpdate();
+			comando.executeUpdate(); 
+			// executeUpdate(): 
+			// é utilizado exclusivamente para comando que modificam os dados 
+			//ou a estrutura do banco de dados. Retornam um num inteiro, que representa
+			// a quantidade de linhas afetadas pela operação no banco de dados
 			
 			//comando.execute()
-			//comando.executeUpdate();
+			// método mais genérico de todos. Ele pode executar qualquer tipo de instrução SQL.
+			// aceita qualquer instrução sql. retorna valor boolean
 		}
 	}
 	
 	public void alterar(Categorias categoria) throws SQLException{
 		
-		String sqlAlterar = "update categorias set nome = ?, descricao = ?, ativo = ?  where id = ?";
+		String sqlAlterar = "update categorias set nome = ?, descricao = ?  where id = ?";
 		
 		try (Connection conexao = Conexao.obterConexao();
 			
@@ -39,36 +44,48 @@ public class CategoriaDAO {
 			
 			comando.setString(1, categoria.getNome());
 			comando.setString(2, categoria.getDescricao());
-			comando.setBoolean(3, categoria.getAtivo());
-			comando.setInt(4, categoria.getId());
+//			comando.setBoolean(3, categoria.getAtivo());
+			comando.setInt(3, categoria.getId());
 			
 			comando.executeUpdate();
 		}
 	}
 	
-	public void inativar(int id) throws SQLException {
+	public void inativar(int id) throws SQLException, ClassNotFoundException {
 		String sqlInativar = "update categorias set ativo = false where id = ?";
 		
 		try (Connection conexao = Conexao.obterConexao();
 				PreparedStatement comando = conexao.prepareStatement(sqlInativar)){
-					comando.setInt(1, id);
 					
-					comando.executeUpdate();
+			comando.setInt(1, id);
+			comando.executeUpdate();
 		}
 	}
 	
 	public void reativa(int id) throws SQLException, ClassNotFoundException {
-		String sqlInativar = "update categorias set ativo = true where id = ?";
+		String sqlReativar = "update categorias set ativo = true where id = ?";
 		
 		try (
 			Connection conexao = Conexao.obterConexao();
-			PreparedStatement comando = conexao.prepareStatement(sqlInativar)) {
+			PreparedStatement comando = conexao.prepareStatement(sqlReativar)) {
 			
 			comando.setInt(1, id);
 			comando.executeUpdate();
 			
 		}
 		
+	}
+	
+	public void excluir(int id) throws SQLException, ClassNotFoundException {
+		String sqlExcluir = "delete from categorias where id = ?";
+		
+		try(
+				Connection conexao = Conexao.obterConexao();
+				PreparedStatement comando = conexao.prepareStatement(sqlExcluir)){
+			comando.setInt(1, id);
+			comando.executeUpdate();
+			
+		}
 	}
 	
 	public Categorias localizarCategoria(int id) throws SQLException {
@@ -80,8 +97,12 @@ public class CategoriaDAO {
 					comando.setInt(1, id);
 			
 					ResultSet resultado = comando.executeQuery();
+					// executeQUery(): utilizado para fazer consultas ao banco de dados, recuperar ou buscar dados!
+					// ( SELECT )
+					// retorna um objeto do tipo ResultSet
 					
 					while (resultado.next()) {
+						// next(): percorre linha por linha no objeto de ResultSet vindo do executeQuery()
 						categoria.setId(resultado.getInt("id"));
 						categoria.setNome(resultado.getString("nome"));
 						categoria.setDescricao(resultado.getString("descricao"));
@@ -95,7 +116,7 @@ public List<Categorias> listarCategorias() throws SQLException {
 		
 		List<Categorias> lista = new ArrayList<>();
 		
-		String sqlLista = "select * from categorias where ativo = true order by nome";
+		String sqlLista = "select * from categorias order by nome";
 		
 		try (Connection conexao = Conexao.obterConexao();
 				PreparedStatement comando = conexao.prepareStatement(sqlLista)){
